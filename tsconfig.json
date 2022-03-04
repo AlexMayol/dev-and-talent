@@ -1,5 +1,13 @@
 {
   "baseUrl": "./src",
+  "paths": {
+    "@domain/*": [
+      "domain/*"
+    ],
+    "@actions/*": [
+      "actions/*"
+    ]
+  },
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
@@ -10,5 +18,8 @@
   },
   "lib": [
     "es2015"
+  ],
+  "include": [
+    "**/*.ts"
   ]
 }

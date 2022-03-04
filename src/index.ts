@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser'
 import 'dotenv/config'
-import { createUserAction, getUserAction } from './User/infra/userController'
+import { userRouter } from './infra/user/api'
 
 const app = express();
 const port = 3000;
@@ -21,7 +21,6 @@ app.get('/query', (req, res) => {
     res.send(query);
 });
 
-app.get('/pepe/:id', getUserAction)
-app.post('/createPepe', createUserAction)
+app.use('/users', userRouter)
 
 app.listen(port, () => console.log(`Express is listening at http://localhost:${port}`));
