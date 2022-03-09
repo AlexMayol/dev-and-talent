@@ -1,0 +1,20 @@
+{
+   "type": "postgres",
+   "host": "localhost",
+   "port": 5432,
+   "username": "talenteddev",
+   "password": "1234",
+   "database": "dev_talent_db",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/infra/repository/typeorm/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/infra/repository/typeorm/migration/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/infra/repository/typeorm/entity",
+      "migrationsDir": "src/infra/repository/typeorm/migration"
+   }
+}

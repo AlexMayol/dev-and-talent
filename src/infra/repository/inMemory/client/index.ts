@@ -4,16 +4,22 @@ const client1 = {
     id: '1',
     name: 'User 1',
     email: 'mengano@test.io',
+    availability: 'yes',
+    country: 'SW',
 }
 const client2 = {
     id: '2',
     name: 'User 2',
     email: 'pagano@test.io',
+    availability: 'yes',
+    country: 'SW',
 }
 const client3 = {
     id: '3',
     name: 'user 3',
     email: 'propano@test.io',
+    availability: 'yes',
+    country: 'SW',
 }
 
 let clients = [client1, client2, client3]
@@ -30,8 +36,8 @@ export const ClientInMemoryRepo: ClientRepo = {
     getClients: async () => {
         return await clients
     },
-    updateClient: async (client) => {
-        const currentClient = clients.find(cli => cli.id === client.id)
+    updateClient: async (id, client) => {
+        const currentClient = clients.find(cli => cli.id === id)
         for (const [key, value] of Object.entries(client)) {
             currentClient[key] = value
         }
@@ -39,6 +45,6 @@ export const ClientInMemoryRepo: ClientRepo = {
     },
     deleteClient: async (clientId) => {
         clients = clients.filter(cli => cli.id != clientId)
-        return 'ok deleted'
+        return clients
     },
 }

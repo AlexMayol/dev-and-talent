@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { ClientRepo } from '../../../actions/client'
+import { ClientRepo } from '../../actions/client'
 
 type RouteParams = {
     req: Request,
@@ -19,8 +19,9 @@ export const clientController = {
         return await repository.createClient(client)
     },
     handleUpdateClient: async ({ req, repository }: RouteParams) => {
+        const clientId = req.params.id
         const client = req.body
-        return await repository.updateClient(client)
+        return await repository.updateClient(clientId, client)
     },
     handleRemoveClient: async ({ req, repository }: RouteParams) => {
         const clientId = req.params.id
